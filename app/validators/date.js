@@ -7,12 +7,9 @@ export default function validateDate(options = {}) {
   options = withDefaults(options, {
     allowString: true,
     allowNone: false,
+    allowBlank: false,
     errorFormat: 'MM/DD/YYYY'
   });
-
-  if (options.allowBlank) {
-    options.allowNone = true;
-  }
 
   return (key, value) => {
     let result = validate('date', value, options, null, key);
