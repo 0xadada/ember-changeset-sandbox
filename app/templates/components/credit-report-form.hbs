@@ -1,42 +1,51 @@
 <p>focus out to show validations</p>
-{{#with (changeset model CreditProfileValidations) as |changeset|}}
-  <dl>
-    <dt>firstName</dt>
-    <dd>
-      changeset: {{input value=changeset.firstName}}
-      <code>{{changeset.firstName}}</code>
-      <br>
-      model: {{input value=model.firstName}}
-      <code>{{model.firstName}}</code>
-    </dd>
-    <dt>lastName</dt>
-    <dd>
-      changeset: {{input value=changeset.lastName}}
-      <code>{{changeset.lastName}}</code>
-      <br>
-      model: {{input value=model.lastName}}
-      <code>{{model.lastName}}</code>
-    </dd>
-    <dt>dob</dt>
-    <dd>
-      changeset: {{input value=changeset.dob placeholder="MM/DD/YYYY"}}
-      <code>{{changeset.dob}}</code>
-      <br>
-      model: {{input value=model.dob}}
-      <code>{{model.dob}}</code>
-    </dd>
-  </dl>
+<dl>
+  <dt>firstName</dt>
+  <dd>
+    changeset:
+    <input
+      onblur={{action onValidate changeset "firstName"}}
+      oninput={{action (mut (get changeset "firstName")) value="target.value"}}
+      value={{get changeset "firstName"}}>
+    <code>{{changeset.firstName}}</code>
+    <br>
+    model: {{input value=model.firstName}}
+    <code>{{model.firstName}}</code>
+  </dd>
+  <dt>lastName</dt>
+  <dd>
+    changeset: <input
+      onblur={{action onValidate changeset "lastName"}}
+      oninput={{action (mut (get changeset "lastName")) value="target.value"}}
+      value={{get changeset "lastName"}}>
+    <code>{{changeset.lastName}}</code>
+    <br>
+    model: {{input value=model.lastName}}
+    <code>{{model.lastName}}</code>
+  </dd>
+  <dt>dob</dt>
+  <dd>
+    changeset:
+    <input
+      onblur={{action onValidate changeset "dob"}}
+      oninput={{action (mut (get changeset "dob")) value="target.value"}}
+      value={{get changeset "dob"}}
+      placeholder="MM/DD/YYYY">
+    <code>{{changeset.dob}}</code>
+    <br>
+    model: {{input value=model.dob}}
+    <code>{{model.dob}}</code>
+  </dd>
+</dl>
 
-  {{yield (hash errors=changeset.errors)}}
+{{yield (hash errors=changeset.errors)}}
 
-  {{#each changeset.errors as |errorField|}}
-    {{#each errorField.validation as |error|}}
-      {{error}}
-      <br>
-    {{/each}}
+{{#each changeset.errors as |errorField|}}
+  {{#each errorField.validation as |error|}}
+    {{error}}
+    <br>
   {{/each}}
+{{/each}}
 
-  <button {{action onSubmit changeset}}
-    disabled={{or changeset.isInvalid changeset.isPristine}}
-    >Submit</button>
-{{/with}}
+<button {{action onSubmit changeset}}
+  disabled={{or changeset.isInvalid changeset.isPristine}}>Submit</button>
