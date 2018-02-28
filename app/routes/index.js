@@ -1,14 +1,29 @@
 import Route from '@ember/routing/route';
-import { get, set } from '@ember/object';
+import EmberObject, { get, set } from '@ember/object';
+import Changeset from 'ember-changeset';
+import lookupValidator from 'ember-changeset-validations';
+import CreditProfileValidations from 'sandbox/validations/credit-report';
 
 export default Route.extend({
+  changeset: null,
   creditReport: null,
 
   async model() {
     const store = get(this, 'store');
     let model = await store.createRecord('credit-report');
     set(this, 'creditReport', model);
-    return model;
+    let validatorFn = lookupValidator(CreditProfileValidations);
+    let changeset = new Changeset(
+      model,
+      validatorFn,
+      CreditProfileValidations,
+      { skipValidate: true }
+    );
+    set(this, 'changeset', changeset);
+    return EmberObject.create({
+      model,
+      changeset
+    });
   },
 
   deactivate() {

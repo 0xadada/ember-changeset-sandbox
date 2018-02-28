@@ -10,6 +10,14 @@ export default Controller.extend({
           alert(JSON.stringify(model.toJSON()));
         }
       });
+    },
+
+    validateField(changeset, field) {
+      let hasChanges = changeset.get(`change.${field}`) ? true : false;
+      if (hasChanges) {
+        // only run validations if field has changes
+        changeset.validate(field);
+      }
     }
   }
 });

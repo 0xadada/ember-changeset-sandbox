@@ -1,12 +1,9 @@
-import { computed } from '@ember/object';
 import {
   validateFormat,
   validatePresence,
   validateNumber,
   validateLength
 } from 'ember-changeset-validations/validators';
-// import moment from 'moment';
-// import validateDate from 'sandbox/validators/date';
 
 export default {
   firstName: [
