@@ -1,8 +1,9 @@
-{{#with (changeset model Validations) as |changeset|}}
+<p>type to show validations</p>
+{{#with (changeset model CreditProfileValidations) as |changeset|}}
   <dl>
     <dt>firstName</dt>
     <dd>
-      cs: {{input value=changeset.firstName}}
+      changeset: {{input value=changeset.firstName}}
       <code>{{changeset.firstName}}</code>
       <br>
       model: {{input value=model.firstName}}
@@ -10,7 +11,7 @@
     </dd>
     <dt>lastName</dt>
     <dd>
-      cs: {{input value=changeset.lastName}}
+      changeset: {{input value=changeset.lastName}}
       <code>{{changeset.lastName}}</code>
       <br>
       model: {{input value=model.lastName}}
@@ -18,7 +19,7 @@
     </dd>
     <dt>dob</dt>
     <dd>
-      cs: {{input value=changeset.dob placeholder="MM/DD/YYYY"}}
+      changeset: {{input value=changeset.dob placeholder="MM/DD/YYYY"}}
       <code>{{changeset.dob}}</code>
       <br>
       model: {{input value=model.dob}}

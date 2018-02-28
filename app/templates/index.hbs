@@ -1,10 +1,13 @@
 {{#credit-report-form
+  class="b"
   model=model
-  Validations=Validations
   onSubmit=(action "submit") as |crf|}}
 
   {{#if crf.errors.length}}
-    <h2>Warning: component yielded errors</h2>
+  <div class="a">
+    &lt;--yielded content--&gt;
+    <h2>Warning: component yielded {{crf.errors.length}} errors</h2>
+  </div>
   {{/if}}
 {{/credit-report-form}}
 
