@@ -1,51 +1,20 @@
-# sandbox
+# ember-contextual-components-changeset 
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A sandbox for experimenting with contextual components and `ember-changeset`.
 
-## Prerequisites
+Switch between git branches to view differing implementations.
 
-You will need the following things properly installed on your computer.
+## branch: master
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+[master](https://github.com/0xadada/ember-contextual-components-changeset/tree/master) branch contains
+a repo doing default all-in-one validation that occurs when any changes are made
+to any field. In this case, the changeset is invalid
+but only shows errors for fields that haven't been touched (`isPristine`).
 
-## Installation
+## incremental-validation
 
-* `git clone <repository-url>` this repository
-* `cd sandbox`
-* `npm install`
-
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+The [incremental
+validation](https://github.com/0xadada/ember-contextual-components-changeset/tree/incremental-validation)
+branch uses a custom validator function to only validate the currently-focused
+field upon `onBlur` event. This allows for progressive disclosure of validation
+errors.

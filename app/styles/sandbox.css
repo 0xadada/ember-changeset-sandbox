@@ -1,0 +1,14 @@
+.a { background-color: rgba(128, 128, 128, 1); }
+.b { background-color: rgba(64, 64, 64, 1); }
+.c {
+  color: white;
+  background-color: rgba(32, 32, 32, 1);
+}
+.d {
+  background-color: rgba(16, 16, 16, 1);
+  color: white;
+}
+.e {
+  background-color: rgba(8, 8, 8, 1);
+  color: white;
+}
