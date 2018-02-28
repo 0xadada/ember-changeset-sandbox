@@ -18,3 +18,8 @@ validation](https://github.com/0xadada/ember-contextual-components-changeset/tre
 branch uses a custom validator function to only validate the currently-focused
 field upon `onBlur` event. This allows for progressive disclosure of validation
 errors.
+
+## incremental-validation-sub-component
+
+The [incremental-validation-sub-component](https://github.com/0xadada/ember-contextual-components-changeset/tree/incremental-validation-sub-component)
+does other stuff.
