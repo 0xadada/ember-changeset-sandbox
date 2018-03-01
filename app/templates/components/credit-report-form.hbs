@@ -25,16 +25,35 @@
   </dd>
   <dt>dob</dt>
   <dd>
-    changeset:
-    <input
-      onblur={{action onValidate changeset "dob"}}
-      oninput={{action (mut (get changeset "dob")) value="target.value"}}
-      value={{get changeset "dob"}}
-      placeholder="MM/DD/YYYY">
-    <code>{{changeset.dob}}</code>
-    <br>
-    model: {{input value=model.dob}}
-    <code>{{model.dob}}</code>
+    {{#date-picker
+      class="c"
+      changeset=changeset
+      dob=changeset.dob
+      onValidate=onValidate as |dob|}}
+      <div class="b">
+        changeset:
+        {{dob.month}}
+        <span class="t-Light t-XL u-ml--SM">/</span>
+        {{dob.day}}
+        <span class="t-Light t-XL u-ml--SM">/</span>
+        {{dob.year}}
+        <br>
+        model:
+        <code>
+          {{dob._model.month}}/
+          {{dob._model.day}}/
+          {{dob._model.year}}
+        </code>
+        <br>
+        {{#each dob.errors as |error|}}
+          {{#each error.validation as |message|}}
+            <p>{{message}}</p>
+          {{/each}}
+        {{/each}}
+        <code>date-picker date: {{dob.date}}</code><br>
+      </div>
+    {{/date-picker}}
+    <code>credit-report-form dob: {{get changeset "dob"}}</code>
   </dd>
 </dl>
 

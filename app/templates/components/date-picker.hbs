@@ -1,0 +1,27 @@
+{{#if (has-block)}}
+  {{yield (hash
+    day=(component "text-field"
+      focus-out=(action "validate" _changeset "day")
+      key-up=(action "validate" _changeset "day")
+      type="number"
+      placeholder="DD"
+      value=_changeset.day)
+    month=(component "text-field"
+      focus-out=(action "validate" _changeset "month")
+      key-up=(action "validate" _changeset "month")
+      type="number"
+      placeholder="MM"
+      value=_changeset.month)
+    year=(component "text-field"
+      focus-out=(action "validate" _changeset "year")
+      key-up=(action "validate" _changeset "year")
+      type="number"
+      placeholder="YYYY"
+      value=_changeset.year)
+    date=formattedDate
+    _model=model
+    errors=(get _changeset "errors")
+  )}}
+{{else}}
+  {{formattedDate}}
+{{/if}}

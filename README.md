@@ -22,4 +22,5 @@ errors.
 ## incremental-validation-sub-component
 
 The [incremental-validation-sub-component](https://github.com/0xadada/ember-contextual-components-changeset/tree/incremental-validation-sub-component)
-does other stuff.
+refactors the date picker into another component that only yields valid dates to
+its consumer.
